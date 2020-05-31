@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <title>DigiPets</title>
     <link rel="stylesheet" href="https://use.typekit.net/exb1jvy.css">
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous' defer></script>
     <script src="script.js" defer></script>
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
     <main class="main-window">
@@ -16,18 +16,18 @@
                 <div class="happiness">
                     <h2>Happiness</h2>
                     <ul>
-                        <li><img src="assets/heart-8bit.png" alt=""></li>
-                        <li><img src="assets/heart-8bit.png" alt=""></li>
-                        <li><img src="assets/heart-8bit.png" alt=""></li>
+                        <li class="hearts heart-1"><img src="assets/heart-8bit.png" alt=""></li>
+                        <li class="hearts heart-1"><img src="assets/heart-8bit.png" alt=""></li>
+                        <li class="hearts heart-1"><img src="assets/heart-8bit.png" alt=""></li>
                     </ul>
                 </div>
                 
                 <div class="treat-o-meter">
                     <h2>Treat-O-Meter</h2>
                     <ul>
-                        <li><img src="assets/treats-8bit.png" alt=""></li>
-                        <li><img src="assets/treats-8bit.png" alt=""></li>
-                        <li><img src="assets/treats-8bit.png" alt=""></li>
+                        <li class="treats treat-3"><img src="assets/treats-8bit.png" alt=""></li>
+                        <li class="treats treat-2"><img src="assets/treats-8bit.png" alt=""></li>
+                        <li class="treats treat-1"><img src="assets/treats-8bit.png" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                 <div class="praise">
                     <h2>Praise</h2>
                     <div class="praise-button-container">
-                    <a href="javascript:void(0)" class="eightbit-btn eightbit-btn--proceed">Pet</a>
+                    <a class="pet-btn eightbit-btn eightbit-btn--proceed">Pet</a>
                     <a href="javascript:void(0)" class="eightbit-btn">Give Treat</a>
                     </div>
                 </div>
