@@ -1,0 +1,456 @@
+html {
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article, aside, footer, header, nav, section {
+  display: block;
+}
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+}
+
+figcaption, figure, main {
+  display: block;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+pre {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
+}
+
+b, strong {
+  font-weight: inherit;
+}
+
+b, strong {
+  font-weight: bolder;
+}
+
+code, kbd, samp {
+  font-family: monospace,monospace;
+  font-size: 1em;
+}
+
+dfn {
+  font-style: italic;
+}
+
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -.25em;
+}
+
+sup {
+  top: -.5em;
+}
+
+audio, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+img {
+  border-style: none;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, html [type=button], [type=reset], [type=submit] {
+  -webkit-appearance: button;
+}
+
+button::-moz-focus-inner, [type=button]::-moz-focus-inner, [type=reset]::-moz-focus-inner, [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+button:-moz-focusring, [type=button]:-moz-focusring, [type=reset]:-moz-focusring, [type=submit]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+fieldset {
+  padding: .35em .75em .625em;
+}
+
+legend {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  overflow: auto;
+}
+
+[type=checkbox], [type=radio] {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+}
+
+[type=number]::-webkit-inner-spin-button, [type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+[type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
+details, menu {
+  display: block;
+}
+
+summary {
+  display: list-item;
+}
+
+canvas {
+  display: inline-block;
+}
+
+template {
+  display: none;
+}
+
+[hidden] {
+  display: none;
+}
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.eightbit-btn {
+  background: #92CD41;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  font-size: 16px;
+  padding: 6px;
+  font-family: 'unibody-8-new', cursive;
+  font-weight: 400;
+  text-decoration: none;
+  color: white;
+  -webkit-box-shadow: inset -2px -2px 0px 0px #4AA52E;
+          box-shadow: inset -2px -2px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:hover, .eightbit-btn:focus {
+  background: #76c442;
+  -webkit-box-shadow: inset -3px -3px 0px 0px #4AA52E;
+          box-shadow: inset -3px -3px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:active {
+  -webkit-box-shadow: inset 2px 2px 0px 0px #4AA52E;
+          box-shadow: inset 2px 2px 0px 0px #4AA52E;
+}
+
+.eightbit-btn:before, .eightbit-btn:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.eightbit-btn:before {
+  top: -4px;
+  left: 0;
+  border-top: 4px black solid;
+  border-bottom: 4px black solid;
+}
+
+.eightbit-btn:after {
+  left: -4px;
+  top: 0;
+  border-left: 4px black solid;
+  border-right: 4px black solid;
+}
+
+.eightbit-btn--reset {
+  background: #E76E55;
+  -webkit-box-shadow: inset -2px -2px 0px 0px #8C2022;
+          box-shadow: inset -2px -2px 0px 0px #8C2022;
+}
+
+.eightbit-btn--reset:hover, .eightbit-btn--reset:focus {
+  background: #CE372B;
+  -webkit-box-shadow: inset -3px -3px 0px 0px #8C2022;
+          box-shadow: inset -3px -3px 0px 0px #8C2022;
+}
+
+.eightbit-btn--reset:active {
+  -webkit-box-shadow: inset 2px 2px 0px 0px #8C2022;
+          box-shadow: inset 2px 2px 0px 0px #8C2022;
+}
+
+.eightbit-btn--proceed {
+  background: #F7D51D;
+  -webkit-box-shadow: inset -2px -2px 0px 0px #E59400;
+          box-shadow: inset -2px -2px 0px 0px #E59400;
+}
+
+.eightbit-btn--proceed:hover, .eightbit-btn--proceed:focus {
+  background: #F2C409;
+  -webkit-box-shadow: inset -3px -3px 0px 0px #E59400;
+          box-shadow: inset -3px -3px 0px 0px #E59400;
+}
+
+.eightbit-btn--proceed:active {
+  -webkit-box-shadow: inset 2px 2px 0px 0px #E59400;
+          box-shadow: inset 2px 2px 0px 0px #E59400;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5, h6, a, div, p, main, aside, footer, header, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "unibody-8-new" ,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.35rem;
+}
+
+.main-window {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.application {
+  min-width: 650px;
+  height: 650px;
+  background: #FFDDDD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.application-wrapper {
+  width: calc(100% - 40px);
+  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.happiness ul, .treat-o-meter ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.happiness ul li {
+  margin-right: 10px;
+}
+
+.happiness ul li img {
+  width: 26px;
+  height: 26px;
+}
+
+.treat-o-meter ul {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.treat-o-meter ul li {
+  margin-left: 10px;
+}
+
+.treat-o-meter ul li img {
+  width: 26px;
+  height: 14px;
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.morus {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.morus img {
+  width: 114px;
+  height: 114px;
+}
+
+.praise h2, .tricks h2 {
+  text-align: center;
+}
+
+.praise h2, .tricks h2, .treat-o-meter h2, .happiness h2 {
+  margin-bottom: 10px;
+}
+
+.praise {
+  width: 210px;
+}
+
+.praise div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tricks {
+  width: 240px;
+}
+
+.tricks div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}

@@ -1,0 +1,90 @@
+.main-window {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.application {
+    min-width: 650px;
+    height: 650px;
+    background: #FFDDDD;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.application-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.happiness, .treat-o-meter  {
+    ul {
+    list-style: none;
+    display: flex;
+    }
+}
+
+.happiness ul li {
+    margin-right: 10px;
+    img {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+.treat-o-meter ul {
+    justify-content: end;
+    li {
+        margin-left: 10px;
+        img {
+            width: 26px;
+            height: 14px;
+            transform: rotate(135deg);
+        }
+    }
+}
+
+// .app-morus {
+//     justify-content: center;
+// }
+
+.morus {
+    display: flex;
+    justify-content: center;
+    img {
+    width: 114px;
+    height: 114px;
+    }
+}
+
+.praise, .tricks {
+    h2 {
+    text-align: center;
+    }
+}
+
+.praise, .tricks, .treat-o-meter, .happiness {
+    h2 {
+        margin-bottom: 10px;
+    }
+}
+
+.praise {
+    width: 210px;
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.tricks {
+    width: 240px;
+    div {
+        display: flex;
+        justify-content: space-between;
+    }
+}
