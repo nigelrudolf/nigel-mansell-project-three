@@ -1,3 +1,4 @@
+
 // let audio = new Audio('assets/cute.mp3');
 // audio.play();
 
@@ -5,9 +6,6 @@
 let petCounter = 0;
 let treatCounter = 0;
 let heartCounter = 0;
-
-const treats = ['.treat-1','.treat-2','.treat-3'];
-const hearts = ['.heart-1','.heart-2','.heart-3'];
 
 $(document).ready(function(){
     
@@ -18,18 +16,18 @@ $(document).ready(function(){
         $('.hearts').hide();
     }
 
-    // Pet Button Functionality
+    // pet-button Functionality
     // Treats are given at 5, 10 and 15 pets
-    $('.pet-btn').click(function(){
+    // change this to the .on('click', function(event){})
+
+    $('.pet-btn').on('click', function(){
         petCounter++;
         if (treatCounter == 3) {
             console.log("Treat limit reached"); // use a jquery method to scale up and down the size of the last treat indicating limit has been reached
         } else if (petCounter >= 5 && petCounter % 5 == 0) {
             treatCounter++;
             console.log(`${treatCounter} treat(s)`); //debug
-            for (let i = 0; i < treatCounter; i++) {
-                $(treats[i]).show();
-            }
+            $('.treat-o-meter ul').append(`<li><img src="assets/treats-8bit.png" alt=""></li>`);
         } 
         // 1 happiness heart is awarded for every 40 pets
         if (heartCounter == 3) {
@@ -37,24 +35,36 @@ $(document).ready(function(){
         } else if (petCounter >= 40 && petCounter % 40 == 0) {
             heartCounter++;
             console.log(`${heartCounter} heart(s)`); //debug
-            for (let i = 0; i < heartCounter; i++) {
-                $(hearts[i]).show();
-            }
+            $('.happiness ul').append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
         }
         
     });
 
-
-    
-
-    
-
-    
+    $('.give-treat-btn').on('click', function(){
+        
     });
 
+});
+
+// STRETCH: Welcome Screen with "Start Game" and "About" Options
+
+// Happiness and Treat-0-Meter are set to 0
+// Stretch: Happiness and Treat-0-Meter are set to 1
+
+// pet-button Functionality
+// Player earns a treat at 5, 10 and 15 pets
+// Player earns a heart for every 40 pets
+// STRETCH: Petting is animated / Cursor be an image of a hand, last treat/heart scales up to indicate limiit reached 
+// STRETCH: Possibly sounds added to match animations
+
+// Give Treat button functionality
+// Giving 1 treat adds 1 heart
 
 
-// Main screen plays audio in loop and awaits user to select play game or about
+// Bark Button functionality
+// Costs 1 heart to achieve
+// Dog barks, mvp: visual text indicator (Bark)
+
 // DigiPets
 
 // Play game
@@ -63,3 +73,7 @@ $(document).ready(function(){
 // 10 pets = 1 treat
 // Clicking a trick when happiness is < required count results in a whimper to encourage more petting or treats
 // User should be informed somehow that there are no treats or tricks are not able to be performed
+
+
+
+// Main screen plays audio in loop and awaits user to select play game or about
