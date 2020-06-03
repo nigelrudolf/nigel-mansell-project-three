@@ -1,79 +1,176 @@
+const digiPetApp = {};
+digiPetApp.counter = {
+    pet: 0,
+    treat: 0,
+    treatIconDisplayCount: 0,
+    heart: 0,
+    heartIconDisplayCount: 0
+}
+digiPetApp.assets = {
+    heart: "",
+    treat:  "",
+    audio: ""
+}
+digiPetApp.selector = {
+    heart: "",
+    treat: ""
+}
+digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
+// digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
+// digiPetApp.barkBtn = $('.bark-btn').on('click', function(){});
+// digiPetApp.sitBtn = $('.sit-btn').on('click', function(){});
+// digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
+
+digiPetApp.updatePetCounter = function() {
+    digiPetApp.counter['pet']++;
+}
+
+// increase / decrease counter functions
+// increase / decrease icon functions
+
+digiPetApp.updateTreatCounter = function() {
+    let petCounter = digiPetApp.counter['pet'];
+    let treatCounter = digiPetApp.counter['treat'];
+
+    if (treatCounter == 3) {
+        // console.log("Treat limit reached");
+    } else if (petCounter >= 5 && petCounter % 5 == 0) {
+        digiPetApp.counter['treat']++;
+    }
+}
+
+digiPetApp.increaseTreatIcon = function() {
+    let petCounter = digiPetApp.counter['pet'];
+    let treatCounter = digiPetApp.counter['treat'];
+    let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
+
+    if (treatCounter == 3 && treatIconDisplayCount == 3) {
+        // console.log("Treat limit reached");
+    } else if (petCounter >= 5 && petCounter % 5 ==0) {
+            $(`.treat-o-meter ul`).append(`<li><img src="assets/treats-8bit.png" alt=""></li>`);
+            digiPetApp.counter['treatIconDisplayCount']++;
+    }
+}
+
+digiPetApp.increaseHeartCounter = function() {
+    let petCounter = digiPetApp.counter['pet'];
+    let heartCounter = digiPetApp.counter['heart'];
+
+    if (heartCounter == 3) {
+        // console.log("Heart limit reached");
+    } else if (petCounter >= 40 && petCounter % 40 == 0) {
+        digiPetApp.counter['heart']++;
+    }
+}
+
+digiPetApp.increaseHeartIcon = function() {
+    let petCounter = digiPetApp.counter['pet'];
+    let heartCounter = digiPetApp.counter['heart'];
+    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+
+    if (heartCounter == 3 && heartIconDisplayCount == 3) {
+        // console.log("Heart limit reached");
+    } else if (petCounter >= 40 && petCounter % 40 ==0) {
+            $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+            digiPetApp.counter['heartIconDisplayCount']++;
+    }
+}
+
+digiPetApp.init = function() {
+
+    
+
+    $('.pet-btn').on('click', function(){
+    digiPetApp.updatePetCounter();
+    digiPetApp.updateTreatCounter();
+    digiPetApp.increaseTreatIcon();
+    digiPetApp.increaseHeartCounter();
+    digiPetApp.increaseHeartIcon();
+    console.log(digiPetApp.counter); // remove later
+    });
+
+    // // Update icons
+    
+}
+
 
 // let audio = new Audio('assets/cute.mp3');
 // audio.play();
 
-// Happiness and Treat-0-Meter are set to 1
-let petCounter = 0;
-let treatCounter = 0;
-let heartCounter = 0;
-
 $(document).ready(function(){
-    
-    let newGame = true;
+    digiPetApp.init();
 
-    if (newGame == true) {
-        $('.treats').hide();
-        $('.hearts').hide();
-    }
+    // Place updateIcons() here
 
     // pet-button Functionality
     // Treats are given at 5, 10 and 15 pets
     // change this to the .on('click', function(event){})
 
-    $('.pet-btn').on('click', function(){
-        petCounter++;
-        if (treatCounter == 3) {
-            console.log("Treat limit reached"); // use a jquery method to scale up and down the size of the last treat indicating limit has been reached
-        } else if (petCounter >= 5 && petCounter % 5 == 0) {
-            treatCounter++;
-            console.log(`${treatCounter} treat(s)`); //debug
-            $('.treat-o-meter ul').append(`<li><img src="assets/treats-8bit.png" alt=""></li>`);
-        } 
-        // 1 happiness heart is awarded for every 40 pets
-        if (heartCounter == 3) {
-            console.log("Heart limit reached"); // use a jquery method to scale up and down the size of the last heart indicating limit has been reached
-        } else if (petCounter >= 40 && petCounter % 40 == 0) {
-            heartCounter++;
-            console.log(`${heartCounter} heart(s)`); //debug
-            $('.happiness ul').append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
-        }
+    // $('.pet-btn').on('click', function(){
+    //     petCounter++;
+    //     if (treatCounter == 3) {
+    //         console.log("Treat limit reached"); // use a jquery method to scale up and down the size of the last treat indicating limit has been reached
+    //     } else if (petCounter >= 5 && petCounter % 5 == 0) {
+    //         treatCounter++;
+    //         console.log(`${treatCounter} treat(s)`); //debug
+    //         $('.treat-o-meter ul').append(`<li><img src="assets/treats-8bit.png" alt=""></li>`);
+    //     } 
+    //     // 1 happiness heart is awarded for every 40 pets
+    //     if (heartCounter == 3) {
+    //         console.log("Heart limit reached"); // use a jquery method to scale up and down the size of the last heart indicating limit has been reached
+    //     } else if (petCounter >= 40 && petCounter % 40 == 0) {
+    //         heartCounter++;
+    //         console.log(`${heartCounter} heart(s)`); //debug
+    //         $('.happiness ul').append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+    //     }
         
-    });
+    // });
 
-    $('.give-treat-btn').on('click', function(){
-        
-    });
+    // $('.give-treat-btn').on('click', function(){
+    //     if (treatCounter >= 1) {
+    //         treatCounter--;
+    //         $('.happiness ul').append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+    //         $('.treat-o-meter ul li').remove();
+    //     }
+    // });
 
 });
 
-// STRETCH: Welcome Screen with "Start Game" and "About" Options
+// DigiPets
 
-// Happiness and Treat-0-Meter are set to 0
+// STRETCH: Welcome Screen with "Start Game" and "About" Options
+// STRETCH: Incorporate relaxing audio on welcome screen and / or main screen
+
 // Stretch: Happiness and Treat-0-Meter are set to 1
+
+// need some kind of counter mechanism that interfaces with an updateIcons() mechanism
+// clicking buttons updates a counter, updateIcons() reads counter value and displays correct number of treats and hearts
 
 // pet-button Functionality
 // Player earns a treat at 5, 10 and 15 pets
 // Player earns a heart for every 40 pets
-// STRETCH: Petting is animated / Cursor be an image of a hand, last treat/heart scales up to indicate limiit reached 
+// STRETCH: Petting is animated / Cursor could be an image of a hand, last treat/heart scales up to indicate limiit reached 
 // STRETCH: Possibly sounds added to match animations
 
 // Give Treat button functionality
-// Giving 1 treat adds 1 heart
-
+// Giving 1 treat adds 1 heart and removes 1 treat
+// STRETCH: Animate giving treat
 
 // Bark Button functionality
 // Costs 1 heart to achieve
-// Dog barks, mvp: visual text indicator (Bark)
+// Dog Barks, mvp: visual text indicator (Morus Barks)
+// Remove 1 heart
+// If not enough hearts, dog whimpers to encourage more petting or treats
+// STRETCH: Animate barking, sound for whimpering
 
-// DigiPets
+// Sit Button functionality
+// Costs 2 hearts to achieve
+// Dog Sits, mvp: visual text indicator (Morus Sits)
+// If not enough hearts, dog whimpers to encourage more petting or treats
+// STRETCH: Animate Sitting, sound for whimpering
 
-// Play game
-
-// Petting increases happiness and treat-o-meter count
-// 10 pets = 1 treat
-// Clicking a trick when happiness is < required count results in a whimper to encourage more petting or treats
-// User should be informed somehow that there are no treats or tricks are not able to be performed
-
-
-
-// Main screen plays audio in loop and awaits user to select play game or about
+// Jump Button functionality
+// Costs 3 heart to achieve
+// Dog Jumps, mvp: visual text indicator (Morus Jumps)
+// If not enough hearts, dog whimpers to encourage more petting or treats 
+// STRTECH: Animate Jumping, sound for whimpering
