@@ -16,7 +16,7 @@ digiPetApp.selector = {
     treat: ""
 }
 digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
-// digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
+digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
 // digiPetApp.barkBtn = $('.bark-btn').on('click', function(){});
 // digiPetApp.sitBtn = $('.sit-btn').on('click', function(){});
 // digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
@@ -63,6 +63,7 @@ digiPetApp.increaseHeartCounter = function() {
     }
 }
 
+
 digiPetApp.increaseHeartIcon = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter['heart'];
@@ -70,24 +71,79 @@ digiPetApp.increaseHeartIcon = function() {
 
     if (heartCounter == 3 && heartIconDisplayCount == 3) {
         // console.log("Heart limit reached");
-    } else if (petCounter >= 40 && petCounter % 40 ==0) {
-            $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
-            digiPetApp.counter['heartIconDisplayCount']++;
+    } else if (petCounter >= 40 && petCounter % 40 ==0) {    
+        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+        digiPetApp.counter['heartIconDisplayCount']++;
     }
 }
+
+// ****************
+// Give Treat Btn
+// ****************
+digiPetApp.treatBtnDecreaseTreatCounter = function() {
+    let treatCounter = digiPetApp.counter['treat'];
+
+    if (treatCounter >= 1) {
+        digiPetApp.counter['treat']--;
+    }
+}
+
+digiPetApp.treatBtnDecreaseTreatIcon = function() {
+    let treatCounter = digiPetApp.counter['treat'];
+    let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
+
+    if (treatCounter == 0 && treatIconDisplayCount == 0) {
+        // console.log("Treat limit reached");
+    } else {
+            $(`.treat-o-meter ul li:nth-child(1)`).remove();
+            digiPetApp.counter['treatIconDisplayCount']--;
+    }
+}
+
+digiPetApp.treatBtnIncreaseHeartIcon = function() {
+    let heartCounter = digiPetApp.counter['heart'];
+    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+
+    if (heartCounter == 3 && heartIconDisplayCount == 3) {
+        console.log("Heart limit reached");
+    } else {
+        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+        digiPetApp.counter['heartIconDisplayCount']++;
+    }
+}
+
+digiPetApp.treatBtnIncreaseHeartCounter = function() {
+    let heartCounter = digiPetApp.counter['heart'];
+
+    if (heartCounter == 3) {
+        // console.log("Heart limit reached");
+    } else {
+        digiPetApp.counter['heart']++;
+    }
+}
+
 
 digiPetApp.init = function() {
 
     
 
     $('.pet-btn').on('click', function(){
-    digiPetApp.updatePetCounter();
-    digiPetApp.updateTreatCounter();
-    digiPetApp.increaseTreatIcon();
-    digiPetApp.increaseHeartCounter();
-    digiPetApp.increaseHeartIcon();
-    console.log(digiPetApp.counter); // remove later
+        digiPetApp.updatePetCounter();
+        digiPetApp.updateTreatCounter();
+        digiPetApp.increaseTreatIcon();
+        digiPetApp.increaseHeartCounter();
+        digiPetApp.increaseHeartIcon();
+        console.log(digiPetApp.counter); // remove later
     });
+
+    $('.give-treat-btn').on('click', function(){
+        digiPetApp.treatBtnDecreaseTreatCounter();
+        digiPetApp.treatBtnDecreaseTreatIcon();
+        digiPetApp.treatBtnIncreaseHeartCounter();
+        digiPetApp.treatBtnIncreaseHeartIcon();
+        console.log(digiPetApp.counter); // remove later
+    });
+
 
     // // Update icons
     
