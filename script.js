@@ -19,7 +19,7 @@ digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
 digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
 digiPetApp.barkBtn = $('.bark-btn').on('click', function(){});
 digiPetApp.sitBtn = $('.sit-btn').on('click', function(){});
-// digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
+digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
 
 
 // try using an array to hold the display state (bool), use push and pop to add and remove from the array and then use a for each statement to display the actual icons
@@ -196,6 +196,38 @@ digiPetApp.sitBtnDecreaseHeartIcon = function() {
     }
 }
 
+// ****************
+// Jump Button
+// ****************
+digiPetApp.jumpBtnDecreaseHeartCounter = function() {
+    let heartCounter = digiPetApp.counter['heart'];
+    if (heartCounter >= 1) {
+        digiPetApp.counter['heart']--;
+    }
+}
+
+digiPetApp.jump = function() {
+        $('.morus').append(`<div class="jump">Morus jumped</div>`);
+                
+        setTimeout(function(){ 
+            $('.jump').remove();
+        }, 3000);
+}
+
+digiPetApp.jumpBtnDecreaseHeartIcon = function() {
+    let heartCounter = digiPetApp.counter['heart'];
+    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+
+    if (heartCounter == 0 && heartIconDisplayCount == 0) {
+
+    } else {
+        $('.happiness ul li:nth-child(1)').remove();
+        digiPetApp.counter['heartIconDisplayCount']--;
+        digiPetApp.jump();
+    }
+}
+
+
 
 // ****************
 // Init
@@ -229,6 +261,12 @@ digiPetApp.init = function() {
     $('.sit-btn').on('click', function(){
         digiPetApp.sitBtnDecreaseHeartCounter();
         digiPetApp.sitBtnDecreaseHeartIcon();
+        console.log(digiPetApp.counter); // remove later
+    })
+
+    $('.jump-btn').on('click', function(){
+        digiPetApp.jumpBtnDecreaseHeartCounter();
+        digiPetApp.jumpBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     })
 
