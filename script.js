@@ -17,9 +17,14 @@ digiPetApp.selector = {
 }
 digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
 digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
-// digiPetApp.barkBtn = $('.bark-btn').on('click', function(){});
+digiPetApp.barkBtn = $('.bark-btn').on('click', function(){});
 // digiPetApp.sitBtn = $('.sit-btn').on('click', function(){});
 // digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
+
+
+// try using an array to hold the display state (bool), use push and pop to add and remove from the array and then use a for each statement to display the actual icons
+
+// let heartIconDisplayState = [bool,bool,bool];
 
 digiPetApp.updatePetCounter = function() {
     digiPetApp.counter['pet']++;
@@ -76,8 +81,6 @@ digiPetApp.increaseHeartIcon = function() {
     }
 }
 
-// Make document ready snippet
-
 // ****************
 // Give Treat Btn
 // ****************
@@ -108,7 +111,7 @@ digiPetApp.treatBtnIncreaseHeartCounter = function() {
     let treatIconDisplay = digiPetApp.counter['treatIconDisplayCount'];
 
 
-    if (heartCounter == 3 ) { // added
+    if (heartCounter == 3 ) {
         console.log("treatBtnIncreaseHeartCounter");
     } else if (treatCounter != 0) {
         digiPetApp.counter['heart']++;
@@ -141,6 +144,14 @@ digiPetApp.barkBtnDecreaseHeartCounter = function() {
     }
 }
 
+digiPetApp.bark = function() {
+        $('.morus').append(`<div class="woof">Woof!</div>`);
+                
+        setTimeout(function(){ 
+            $('.woof').remove();
+        }, 3000);
+}
+
 digiPetApp.barkBtnDecreaseHeartIcon = function() {
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
@@ -150,16 +161,11 @@ digiPetApp.barkBtnDecreaseHeartIcon = function() {
     } else {
         $('.happiness ul li:nth-child(1)').remove();
         digiPetApp.counter['heartIconDisplayCount']--;
+        digiPetApp.bark();
     }
 }
 
-digiPetApp.barkBtnBark = function() {
-        
-}
-
 digiPetApp.init = function() {
-
-    
 
     $('.pet-btn').on('click', function(){
         digiPetApp.updatePetCounter();
@@ -182,11 +188,10 @@ digiPetApp.init = function() {
     $('.bark-btn').on('click', function(){
         digiPetApp.barkBtnDecreaseHeartCounter();
         digiPetApp.barkBtnDecreaseHeartIcon();
-
-
         console.log(digiPetApp.counter); // remove later
-
     });
+
+    
     // // Update icons
     
 }
@@ -236,9 +241,3 @@ $(document).ready(function(){
 // Dog Jumps, mvp: visual text indicator (Morus Jumps)
 // If not enough hearts, dog whimpers to encourage more petting or treats 
 // STRTECH: Animate Jumping, sound for whimpering
-
-
-
-// try using an array to hold the display state (bool), use push and pop to add and remove from the array and then use a for each statement to display the actual icons
-
-// let heartIconDisplayState = [bool,bool,bool];
