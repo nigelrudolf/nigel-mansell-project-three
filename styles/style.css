@@ -335,8 +335,8 @@ body {
 }
 
 .morus img {
-  width: 114px;
-  height: 114px;
+  width: calc(832px * 0.15);
+  height: calc(1216px * 0.15);
 }
 
 .praise h2, .tricks h2 {
