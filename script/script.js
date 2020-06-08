@@ -170,23 +170,6 @@ digiPetApp.decreaseHeartIcon = function(trickDialogue, selector) {
 
 
 // ****************
-// Bark Button
-// ****************
-digiPetApp.barkBtnDecreaseHeartIcon = function() {
-    let heartCounter = digiPetApp.counter['heart'];
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-    if (heartCounter == 0 && heartIconDisplayCount == 0) {
-
-    } else {
-        $('.happiness ul li:nth-child(1)').remove();
-        let trickDialogue = digiPetApp.trickDialogue.woof;
-        let selector = digiPetApp.selector.woof;
-        digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.doTrick(trickDialogue, selector);
-    }
-}
-
-// ****************
 // Sit Button
 // ****************
 digiPetApp.sitBtnDecreaseHeartIcon = function() {
@@ -203,6 +186,7 @@ digiPetApp.sitBtnDecreaseHeartIcon = function() {
         digiPetApp.doTrick(trickDialogue, selector);
     }
 }
+
 
 // ****************
 // Jump Button
@@ -221,7 +205,6 @@ digiPetApp.jumpBtnDecreaseHeartIcon = function() {
         digiPetApp.doTrick(trickDialogue, selector);
     }
 }
-
 
 
 // ****************
@@ -252,7 +235,6 @@ digiPetApp.init = function() {
         let trickDialogue = digiPetApp.trickDialogue.woof;
         let selector = digiPetApp.selector.woof;
         digiPetApp.decreaseHeartIcon(trickDialogue, selector);
-        // digiPetApp.barkBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     });
 
