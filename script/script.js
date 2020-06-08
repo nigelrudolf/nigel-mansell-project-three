@@ -129,17 +129,20 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
     }
 }
 
+// ****************
+// Trick Buttons
+// ****************
+digiPetApp.decreaseCounter = function(counterType) {
+    let heartCounter = digiPetApp.counter[counterType];
+    if (heartCounter >= 1) {
+        digiPetApp.counter[counterType]--;
+    }
+}
 
 
 // ****************
 // Bark Button
 // ****************
-digiPetApp.barkBtnDecreaseHeartCounter = function() {
-    let heartCounter = digiPetApp.counter['heart'];
-    if (heartCounter >= 1) {
-        digiPetApp.counter['heart']--;
-    }
-}
 
 digiPetApp.bark = function() {
         $('.morus').append(`<div class="woof">Woof!</div>`);
@@ -250,19 +253,19 @@ digiPetApp.init = function() {
     });
 
     $('.bark-btn').on('click', function(){
-        digiPetApp.barkBtnDecreaseHeartCounter();
+        digiPetApp.decreaseCounter("heart");
         digiPetApp.barkBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     });
 
     $('.sit-btn').on('click', function(){
-        digiPetApp.sitBtnDecreaseHeartCounter();
+        digiPetApp.decreaseCounter("heart");
         digiPetApp.sitBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     })
 
     $('.jump-btn').on('click', function(){
-        digiPetApp.jumpBtnDecreaseHeartCounter();
+        digiPetApp.decreaseCounter("heart");
         digiPetApp.jumpBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     })
