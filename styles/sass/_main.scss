@@ -21,6 +21,10 @@
     justify-content: space-between;
 }
 
+
+// **********************************
+// Happiness & Treat-O-Meter Displays
+// **********************************
 .happiness, .treat-o-meter  {
     ul {
     list-style: none;
@@ -47,7 +51,9 @@
         }
     }
 }
-
+// ************
+// Image of Dog 
+// ************
 .morus {
     position: relative;
     display: flex;
@@ -58,6 +64,9 @@
     }
 }
 
+// ****************
+// Button Interface
+// ****************
 .praise, .tricks {
     h2 {
     text-align: center;
