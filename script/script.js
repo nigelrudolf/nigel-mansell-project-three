@@ -49,7 +49,7 @@ digiPetApp.increaseTreatIcon = function() {
     if (treatCounter == 3 && treatIconDisplayCount == 3) {
         
     } else if (petCounter >= 5 && petCounter % 5 ==0) {
-            $(`.treat-o-meter ul`).append(`<li><img src="assets/treats-8bit.png" alt=""></li>`);
+            $(`.treat-o-meter ul`).append(`<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`);
             digiPetApp.counter['treatIconDisplayCount']++;
     }
 }
@@ -73,7 +73,7 @@ digiPetApp.increaseHeartIcon = function() {
     if (heartCounter == 3 && heartIconDisplayCount == 3) {
         
     } else if (petCounter >= 40 && petCounter % 40 ==0) {    
-        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`);
         digiPetApp.counter['heartIconDisplayCount']++;
     }
 }
