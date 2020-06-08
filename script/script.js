@@ -7,8 +7,8 @@ digiPetApp.counter = {
     heartIconDisplayCount: 0
 }
 digiPetApp.assets = {
-    heart: '',
-    treat:  '',
+    heart: `<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`,
+    treat:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
     audio: ''
 }
 digiPetApp.trickDialogue = {
@@ -18,7 +18,7 @@ digiPetApp.trickDialogue = {
 }
 digiPetApp.selector = {
     heart: '.happiness ul li:nth-child(1)',
-    treat: '',
+    treat: '.treat-o-meter ul li:nth-child(1)',
     woof: '.woof',
     sit: '.sit',
     jump: '.jump'
@@ -57,8 +57,9 @@ digiPetApp.increaseTreatIcon = function() {
     if (treatCounter == 3 && treatIconDisplayCount == 3) {
         
     } else if (petCounter >= 5 && petCounter % 5 ==0) {
-            $(`.treat-o-meter ul`).append(`<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`);
-            digiPetApp.counter['treatIconDisplayCount']++;
+        let treatIcon = digiPetApp.assets.treat;
+        $(`.treat-o-meter ul`).append(treatIcon);
+        digiPetApp.counter['treatIconDisplayCount']++;
     }
 }
 
@@ -80,8 +81,9 @@ digiPetApp.increaseHeartIcon = function() {
 
     if (heartCounter == 3 && heartIconDisplayCount == 3) {
         
-    } else if (petCounter >= 40 && petCounter % 40 ==0) {    
-        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`);
+    } else if (petCounter >= 40 && petCounter % 40 ==0) {   
+        let heartIcon = digiPetApp.assets.heart; 
+        $(`.happiness ul`).append(heartIcon);
         digiPetApp.counter['heartIconDisplayCount']++;
     }
 }
@@ -104,7 +106,8 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
     if (treatCounter == 0 && treatIconDisplayCount == 0) {
         
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
-            $(`.treat-o-meter ul li:nth-child(1)`).remove();
+            let treatIcon = digiPetApp.selector.treat;
+            $(treatIcon).remove();
             digiPetApp.counter['treatIconDisplayCount']--;
     }
 }
@@ -132,7 +135,8 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
     if (heartCounter == 3 && heartIconDisplayCount == 3) {
         
     } else if (treatIconDisplay !== 0) {
-        $(`.happiness ul`).append(`<li><img src="assets/heart-8bit.png" alt=""></li>`);
+        let heartIcon = digiPetApp.assets.heart;
+        $(`.happiness ul`).append(heartIcon);
         digiPetApp.counter['heartIconDisplayCount']++;
     }
 }
@@ -141,8 +145,8 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
 // Trick Buttons
 // ****************
 digiPetApp.decreaseCounter = function(counterType) {
-    let heartCounter = digiPetApp.counter[counterType];
-    if (heartCounter >= 1) {
+    let counter = digiPetApp.counter[counterType];
+    if (counter >= 1) {
         digiPetApp.counter[counterType]--;
     }
 }
