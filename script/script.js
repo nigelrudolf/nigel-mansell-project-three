@@ -191,13 +191,6 @@ digiPetApp.sitBtnDecreaseHeartIcon = function() {
 // ****************
 // Jump Button
 // ****************
-digiPetApp.jumpBtnDecreaseHeartCounter = function() {
-    let heartCounter = digiPetApp.counter['heart'];
-    if (heartCounter >= 1) {
-        digiPetApp.counter['heart']--;
-    }
-}
-
 digiPetApp.jump = function() {
         $('.morus').append(`<div class="jump">Morus jumped</div>`);
                 
