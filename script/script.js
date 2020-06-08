@@ -17,7 +17,7 @@ digiPetApp.trickDialogue = {
     jump: '<div class="jump">Morus jumped</div>'
 }
 digiPetApp.selector = {
-    heart: '',
+    heart: '.happiness ul li:nth-child(1)',
     treat: '',
     woof: '.woof',
     sit: '.sit',
@@ -154,7 +154,17 @@ digiPetApp.doTrick = function(trickDialogue, selector) {
     }, 3000);
 }
 
-digiPetApp.decreaseHeartIcon = function() {
+digiPetApp.decreaseHeartIcon = function(trickDialogue, selector) {
+    let heartCounter = digiPetApp.counter['heart'];
+    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+    if (heartCounter == 0 && heartIconDisplayCount == 0) {
+
+    } else {
+        let heartIcon = digiPetApp.selector.heart;
+        $(heartIcon).remove();
+        digiPetApp.counter['heartIconDisplayCount']--;
+        digiPetApp.doTrick(trickDialogue, selector);
+    }
 
 }
 
@@ -239,7 +249,10 @@ digiPetApp.init = function() {
 
     $('.bark-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        digiPetApp.barkBtnDecreaseHeartIcon();
+        let trickDialogue = digiPetApp.trickDialogue.woof;
+        let selector = digiPetApp.selector.woof;
+        digiPetApp.decreaseHeartIcon(trickDialogue, selector);
+        // digiPetApp.barkBtnDecreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
     });
 
