@@ -17,18 +17,12 @@ $fonts-families: (
 $font-sizes: (
     html-default: 62.5%,
 );
-@function font-size($type) {
-    $choice: map-get($font-sizes, $type);
-    @return $choice;
-}; 
+
 
 $colors: (
     pink: #FFDDDD,
 );
-@function color($type) {
-    $choice: map-get($colors, $type);
-    @return $choice;
-};
+
 
 // ****************
 // Praise & Tricks
@@ -49,7 +43,7 @@ $reset-sec-button-background: #CE372B;
 $reset-shadow-color:  #8C2022;
 
 // ****************
-// Woof!
+// Trick Dialogues
 // ****************
 $woof-outline-width: 4px;
 $woof-shadow-width: 2px;
