@@ -170,25 +170,6 @@ digiPetApp.decreaseHeartIcon = function(trickDialogue, selector) {
 
 
 // ****************
-// Sit Button
-// ****************
-digiPetApp.sitBtnDecreaseHeartIcon = function() {
-    let heartCounter = digiPetApp.counter['heart'];
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-
-    if (heartCounter == 0 && heartIconDisplayCount == 0) {
-
-    } else {
-        $('.happiness ul li:nth-child(1)').remove();
-        let trickDialogue = digiPetApp.trickDialogue.sit;
-        let selector = digiPetApp.selector.sit;
-        digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.doTrick(trickDialogue, selector);
-    }
-}
-
-
-// ****************
 // Jump Button
 // ****************
 digiPetApp.jumpBtnDecreaseHeartIcon = function() {
@@ -240,7 +221,9 @@ digiPetApp.init = function() {
 
     $('.sit-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        digiPetApp.sitBtnDecreaseHeartIcon();
+        let trickDialogue = digiPetApp.trickDialogue.sit;
+        let selector = digiPetApp.selector.sit;
+        digiPetApp.decreaseHeartIcon(trickDialogue, selector);
         console.log(digiPetApp.counter); // remove later
     })
 
