@@ -32,13 +32,13 @@ digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
 
 // try using an array to hold the display state (bool), use push and pop to add and remove from the array and then use a for each statement to display the actual icons
 
-// let heartIconDisplayState = [bool,bool,bool];
+// let heartIconDisplayState = [0,0,0];
 
 digiPetApp.increasePetCounter = function() {
     digiPetApp.counter['pet']++;
 }
 
-digiPetApp.updateTreatCounter = function() {
+digiPetApp.petBtnIncreaseTreatCounter = function() {
     let petCounter = digiPetApp.counter['pet'];
     let treatCounter = digiPetApp.counter['treat'];
 
@@ -49,7 +49,7 @@ digiPetApp.updateTreatCounter = function() {
     }
 }
 
-digiPetApp.increaseTreatIcon = function() {
+digiPetApp.petBtnIncreaseTreatIcon = function() {
     let petCounter = digiPetApp.counter['pet'];
     let treatCounter = digiPetApp.counter['treat'];
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
@@ -63,7 +63,7 @@ digiPetApp.increaseTreatIcon = function() {
     }
 }
 
-digiPetApp.increaseHeartCounter = function() {
+digiPetApp.petBtnIncreaseHeartCounter = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter['heart'];
 
@@ -74,7 +74,7 @@ digiPetApp.increaseHeartCounter = function() {
     }
 }
 
-digiPetApp.increaseHeartIcon = function() {
+digiPetApp.petBtnIncreaseHeartIcon = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
@@ -114,11 +114,7 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
 
 digiPetApp.treatBtnIncreaseHeartCounter = function() {
     let heartCounter = digiPetApp.counter['heart'];
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount']; // remove
     let treatCounter = digiPetApp.counter['treat'];
-    let treatIconDisplay = digiPetApp.counter['treatIconDisplayCount']; // remove
-
-
     if (heartCounter == 3 ) {
        
     } else if (treatCounter != 0) {
@@ -181,10 +177,10 @@ digiPetApp.init = function() {
 
     $('.pet-btn').on('click', function(){
         digiPetApp.increasePetCounter();
-        digiPetApp.updateTreatCounter();
-        digiPetApp.increaseTreatIcon();
-        digiPetApp.increaseHeartCounter();
-        digiPetApp.increaseHeartIcon();
+        digiPetApp.petBtnIncreaseTreatCounter();
+        digiPetApp.petBtnIncreaseTreatIcon();
+        digiPetApp.petBtnIncreaseHeartCounter();
+        digiPetApp.petBtnIncreaseHeartIcon();
         console.log(digiPetApp.counter); // remove later
         // make function names more verbose
     });
@@ -227,10 +223,7 @@ digiPetApp.init = function() {
     $('.pet-btn, .give-treat-btn, .bark-btn, .sit-btn, .jump-btn').on('click', function(){
         // use this space to update the display icons
     })
-
-    
     // // Update icons
-    
 }
 
 // let audio = new Audio('assets/cute.mp3');
