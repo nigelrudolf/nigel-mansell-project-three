@@ -14,14 +14,14 @@ digiPetApp.assets = {
 digiPetApp.trickDialogue = {
     woof: '<div class="woof">Woof!</div>',
     sit: '<div class="sit">Morus sat down</div>',
-    jump: ''
+    jump: '<div class="jump">Morus jumped</div>'
 }
 digiPetApp.selector = {
     heart: '',
     treat: '',
     woof: '.woof',
     sit: '.sit',
-    jump: ''
+    jump: '.jump'
 }
 digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
 digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
@@ -193,14 +193,6 @@ digiPetApp.sitBtnDecreaseHeartIcon = function() {
 // ****************
 // Jump Button
 // ****************
-digiPetApp.jump = function() {
-        $('.morus').append(`<div class="jump">Morus jumped</div>`);
-                
-        setTimeout(function(){ 
-            $('.jump').remove();
-        }, 3000);
-}
-
 digiPetApp.jumpBtnDecreaseHeartIcon = function() {
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
@@ -208,9 +200,11 @@ digiPetApp.jumpBtnDecreaseHeartIcon = function() {
     if (heartCounter == 0 && heartIconDisplayCount == 0) {
 
     } else {
+        let trickDialogue = digiPetApp.trickDialogue.jump;
+        let selector = digiPetApp.trickDialogue.selector;
         $('.happiness ul li:nth-child(1)').remove();
         digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.jump();
+        digiPetApp.doTrick(trickDialogue, selector);
     }
 }
 
