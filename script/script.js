@@ -34,7 +34,7 @@ digiPetApp.jumpBtn = $('.jump-btn').on('click', function(){});
 
 // let heartIconDisplayState = [bool,bool,bool];
 
-digiPetApp.updatePetCounter = function() {
+digiPetApp.increasePetCounter = function() {
     digiPetApp.counter['pet']++;
 }
 
@@ -147,6 +147,19 @@ digiPetApp.decreaseCounter = function(counterType) {
     }
 }
 
+digiPetApp.decreaseHeartIcon = function() {
+    let heartCounter = digiPetApp.counter['heart'];
+    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+    if (heartCounter == 0 && heartIconDisplayCount == 0) {
+
+    } else {
+        let heartIcon = digiPetApp.selector.heart;
+        $(heartIcon).remove();
+        digiPetApp.counter['heartIconDisplayCount']--;
+        return true;
+    }
+}
+
 digiPetApp.doTrick = function(trickDialogueSelector) {
     let trickDialogue = digiPetApp.trickDialogue[trickDialogueSelector];
     let selector = digiPetApp.selector[trickDialogueSelector];
@@ -156,20 +169,6 @@ digiPetApp.doTrick = function(trickDialogueSelector) {
     }, 3000);
 }
 
-digiPetApp.decreaseHeartIcon = function(trickDialogueSelector) {
-    let heartCounter = digiPetApp.counter['heart'];
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-    if (heartCounter == 0 && heartIconDisplayCount == 0) {
-
-    } else {
-        let heartIcon = digiPetApp.selector.heart;
-        $(heartIcon).remove();
-        digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.doTrick(trickDialogueSelector);
-    }
-
-}
-
 
 // ****************
 // Init
@@ -177,7 +176,7 @@ digiPetApp.decreaseHeartIcon = function(trickDialogueSelector) {
 digiPetApp.init = function() {
 
     $('.pet-btn').on('click', function(){
-        digiPetApp.updatePetCounter();
+        digiPetApp.increasePetCounter();
         digiPetApp.updateTreatCounter();
         digiPetApp.increaseTreatIcon();
         digiPetApp.increaseHeartCounter();
@@ -196,19 +195,28 @@ digiPetApp.init = function() {
 
     $('.bark-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        digiPetApp.decreaseHeartIcon("woof");
+        let heartIconDecrease = digiPetApp.decreaseHeartIcon();
+        if (heartIconDecrease) {
+            digiPetApp.doTrick("woof");
+        }
         console.log(digiPetApp.counter); // remove later
     });
 
     $('.sit-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        digiPetApp.decreaseHeartIcon("sit");
+        let heartIconDecrease = digiPetApp.decreaseHeartIcon();
+        if (heartIconDecrease) {
+            digiPetApp.doTrick("sit");
+        }
         console.log(digiPetApp.counter); // remove later
     })
 
     $('.jump-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        digiPetApp.decreaseHeartIcon("jump");
+        let heartIconDecrease = digiPetApp.decreaseHeartIcon();
+        if (heartIconDecrease) {
+            digiPetApp.doTrick("jump");
+        }
         console.log(digiPetApp.counter); // remove later
     })
 
