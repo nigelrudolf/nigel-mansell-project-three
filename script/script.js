@@ -158,17 +158,6 @@ digiPetApp.doTrick = function(trickDialogue, selector) {
 // ****************
 // Bark Button
 // ****************
-
-
-
-digiPetApp.bark = function() {
-        $('.morus').append(`<div class="woof">Woof!</div>`);
-                
-        setTimeout(function(){ 
-            $('.woof').remove();
-        }, 3000);
-}
-
 digiPetApp.barkBtnDecreaseHeartIcon = function() {
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
@@ -180,7 +169,6 @@ digiPetApp.barkBtnDecreaseHeartIcon = function() {
     } else {
         $('.happiness ul li:nth-child(1)').remove();
         digiPetApp.counter['heartIconDisplayCount']--;
-        // digiPetApp.bark();
         digiPetApp.doTrick(trickDialogue, selector);
     }
 }
