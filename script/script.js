@@ -7,13 +7,21 @@ digiPetApp.counter = {
     heartIconDisplayCount: 0
 }
 digiPetApp.assets = {
-    heart: "",
-    treat:  "",
-    audio: ""
+    heart: '',
+    treat:  '',
+    audio: ''
+}
+digiPetApp.trickDialogue = {
+    woof: '<div class="woof">Woof!</div>',
+    sit: '',
+    jump: ''
 }
 digiPetApp.selector = {
-    heart: "",
-    treat: ""
+    heart: '',
+    treat: '',
+    woof: '.woof',
+    sit: '',
+    jump: ''
 }
 digiPetApp.petBtn = $('.pet-btn').on('click', function(){});
 digiPetApp.treatBtn = $('.give-treat-btn').on('click', function(){});
@@ -139,10 +147,20 @@ digiPetApp.decreaseCounter = function(counterType) {
     }
 }
 
+digiPetApp.doTrick = function(trickDialogue, selector) {
+    $('.morus').append(trickDialogue);
+    setTimeout(function(){ 
+        $(selector).remove();
+    }, 3000);
+}
+
 
 // ****************
 // Bark Button
 // ****************
+
+
+
 digiPetApp.bark = function() {
         $('.morus').append(`<div class="woof">Woof!</div>`);
                 
@@ -154,13 +172,16 @@ digiPetApp.bark = function() {
 digiPetApp.barkBtnDecreaseHeartIcon = function() {
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
+    let trickDialogue = digiPetApp.trickDialogue.woof;
+    let selector = digiPetApp.selector.woof;
 
     if (heartCounter == 0 && heartIconDisplayCount == 0) {
 
     } else {
         $('.happiness ul li:nth-child(1)').remove();
         digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.bark();
+        // digiPetApp.bark();
+        digiPetApp.doTrick(trickDialogue, selector);
     }
 }
 
