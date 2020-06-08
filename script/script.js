@@ -76,20 +76,6 @@ digiPetApp.updateIcons = function() {
     
 }
 
-digiPetApp.petBtnIncreaseTreatIcon = function() {
-    let petCounter = digiPetApp.counter['pet'];
-    let treatCounter = digiPetApp.counter['treat'];
-    let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-
-    if (treatCounter == 3 && treatIconDisplayCount == 3) {
-        
-    } else if (petCounter >= 5 && petCounter % 5 == 0) {
-        let treatIcon = digiPetApp.assets.treat;
-        $(`.treat-o-meter ul`).append(treatIcon);
-        digiPetApp.counter['treatIconDisplayCount']++;
-    }
-}
-
 digiPetApp.petBtnIncreaseHeartCounter = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter['heart'];
@@ -205,8 +191,7 @@ digiPetApp.init = function() {
     $('.pet-btn').on('click', function(){
         digiPetApp.increasePetCounter();
         digiPetApp.petBtnIncreaseTreatCounter();
-        // digiPetApp.petBtnIncreaseTreatIcon();
-        digiPetApp.updateIcons();
+        digiPetApp.updateIcons(); // treat icons
         digiPetApp.petBtnIncreaseHeartCounter();
         digiPetApp.petBtnIncreaseHeartIcon();
 
