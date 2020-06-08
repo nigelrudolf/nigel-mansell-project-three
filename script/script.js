@@ -154,6 +154,10 @@ digiPetApp.doTrick = function(trickDialogue, selector) {
     }, 3000);
 }
 
+digiPetApp.decreaseHeartIcon = function() {
+
+}
+
 
 // ****************
 // Bark Button
@@ -201,7 +205,7 @@ digiPetApp.jumpBtnDecreaseHeartIcon = function() {
 
     } else {
         let trickDialogue = digiPetApp.trickDialogue.jump;
-        let selector = digiPetApp.trickDialogue.selector;
+        let selector = digiPetApp.selector.jump;
         $('.happiness ul li:nth-child(1)').remove();
         digiPetApp.counter['heartIconDisplayCount']--;
         digiPetApp.doTrick(trickDialogue, selector);
