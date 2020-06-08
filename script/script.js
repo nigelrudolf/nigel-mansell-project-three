@@ -147,14 +147,16 @@ digiPetApp.decreaseCounter = function(counterType) {
     }
 }
 
-digiPetApp.doTrick = function(trickDialogue, selector) {
+digiPetApp.doTrick = function(trickDialogueSelector) {
+    let trickDialogue = digiPetApp.trickDialogue[trickDialogueSelector];
+    let selector = digiPetApp.selector[trickDialogueSelector];
     $('.morus').append(trickDialogue);
     setTimeout(function(){ 
         $(selector).remove();
     }, 3000);
 }
 
-digiPetApp.decreaseHeartIcon = function(trickDialogue, selector) {
+digiPetApp.decreaseHeartIcon = function(trickDialogueSelector) {
     let heartCounter = digiPetApp.counter['heart'];
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     if (heartCounter == 0 && heartIconDisplayCount == 0) {
@@ -163,7 +165,7 @@ digiPetApp.decreaseHeartIcon = function(trickDialogue, selector) {
         let heartIcon = digiPetApp.selector.heart;
         $(heartIcon).remove();
         digiPetApp.counter['heartIconDisplayCount']--;
-        digiPetApp.doTrick(trickDialogue, selector);
+        digiPetApp.doTrick(trickDialogueSelector);
     }
 
 }
@@ -194,25 +196,19 @@ digiPetApp.init = function() {
 
     $('.bark-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        let trickDialogue = digiPetApp.trickDialogue.woof;
-        let selector = digiPetApp.selector.woof;
-        digiPetApp.decreaseHeartIcon(trickDialogue, selector);
+        digiPetApp.decreaseHeartIcon("woof");
         console.log(digiPetApp.counter); // remove later
     });
 
     $('.sit-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        let trickDialogue = digiPetApp.trickDialogue.sit;
-        let selector = digiPetApp.selector.sit;
-        digiPetApp.decreaseHeartIcon(trickDialogue, selector);
+        digiPetApp.decreaseHeartIcon("sit");
         console.log(digiPetApp.counter); // remove later
     })
 
     $('.jump-btn').on('click', function(){
         digiPetApp.decreaseCounter("heart");
-        let trickDialogue = digiPetApp.trickDialogue.jump;
-        let selector = digiPetApp.selector.jump;
-        digiPetApp.decreaseHeartIcon(trickDialogue, selector);
+        digiPetApp.decreaseHeartIcon("jump");
         console.log(digiPetApp.counter); // remove later
     })
 
