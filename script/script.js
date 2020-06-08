@@ -143,7 +143,6 @@ digiPetApp.decreaseCounter = function(counterType) {
 // ****************
 // Bark Button
 // ****************
-
 digiPetApp.bark = function() {
         $('.morus').append(`<div class="woof">Woof!</div>`);
                 
@@ -168,13 +167,6 @@ digiPetApp.barkBtnDecreaseHeartIcon = function() {
 // ****************
 // Sit Button
 // ****************
-digiPetApp.sitBtnDecreaseHeartCounter = function() {
-    let heartCounter = digiPetApp.counter['heart'];
-    if (heartCounter >= 1) {
-        digiPetApp.counter['heart']--;
-    }
-}
-
 digiPetApp.sit = function() {
         $('.morus').append(`<div class="sit">Morus sat down</div>`);
                 
