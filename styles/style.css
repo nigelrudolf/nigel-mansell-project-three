@@ -399,38 +399,21 @@ body {
   border-right: 4px black solid;
 }
 
-.eightbit-btn--reset {
-  background: #E76E55;
-  -webkit-box-shadow: inset -2px -2px 0px 0px #8C2022;
-          box-shadow: inset -2px -2px 0px 0px #8C2022;
+.eightbit-btn--tricks {
+  background: #1d99f7;
+  -webkit-box-shadow: inset -2px -2px 0px 0px #0008e5;
+          box-shadow: inset -2px -2px 0px 0px #0008e5;
 }
 
-.eightbit-btn--reset:hover, .eightbit-btn--reset:focus {
-  background: #CE372B;
-  -webkit-box-shadow: inset -3px -3px 0px 0px #8C2022;
-          box-shadow: inset -3px -3px 0px 0px #8C2022;
+.eightbit-btn--tricks:hover, .eightbit-btn--tricks:focus {
+  background: #095ef2;
+  -webkit-box-shadow: inset -3px -3px 0px 0px #0008e5;
+          box-shadow: inset -3px -3px 0px 0px #0008e5;
 }
 
-.eightbit-btn--reset:active {
-  -webkit-box-shadow: inset 2px 2px 0px 0px #8C2022;
-          box-shadow: inset 2px 2px 0px 0px #8C2022;
-}
-
-.eightbit-btn--proceed {
-  background: #F7D51D;
-  -webkit-box-shadow: inset -2px -2px 0px 0px #E59400;
-          box-shadow: inset -2px -2px 0px 0px #E59400;
-}
-
-.eightbit-btn--proceed:hover, .eightbit-btn--proceed:focus {
-  background: #F2C409;
-  -webkit-box-shadow: inset -3px -3px 0px 0px #E59400;
-          box-shadow: inset -3px -3px 0px 0px #E59400;
-}
-
-.eightbit-btn--proceed:active {
-  -webkit-box-shadow: inset 2px 2px 0px 0px #E59400;
-          box-shadow: inset 2px 2px 0px 0px #E59400;
+.eightbit-btn--tricks:active {
+  -webkit-box-shadow: inset 2px 2px 0px 0px #0008e5;
+          box-shadow: inset 2px 2px 0px 0px #0008e5;
 }
 
 .woof, .sit, .jump {

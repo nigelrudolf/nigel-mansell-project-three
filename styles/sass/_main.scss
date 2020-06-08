@@ -95,6 +95,8 @@
     }
 }
 
+// Pure CSS Retro 8Bit Button
+// https://codepen.io/MatthewShields/pen/pwrXpV
 .eightbit-btn {
     background: $button-background;
     display: inline-block;
@@ -141,23 +143,7 @@
         border-right: $outline-width black solid;
     }
 
-    &--reset {
-        background: $reset-button-background;
-        box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $reset-shadow-color;
-
-        &:hover,
-        &:focus {
-            background: $reset-sec-button-background;
-            box-shadow: inset (-$shadow-width*1.5) (-$shadow-width*1.5) 0px 0px $reset-shadow-color;
-        }
-
-        &:active {
-            box-shadow: inset $shadow-width $shadow-width 0px 0px $reset-shadow-color;
-        }
-
-    }
-
-    &--proceed {
+    &--tricks {
         background: $alt-button-background;
         box-shadow: inset (-$shadow-width) (-$shadow-width) 0px 0px $alt-shadow-color;
 
