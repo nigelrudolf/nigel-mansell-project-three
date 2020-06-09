@@ -186,7 +186,6 @@ digiPetApp.doTrick = function(trickDialogueSelector, image) {
     let altImage = digiPetApp.assets[image];
     let defaultImage = digiPetApp.assets.morusStand;
     $('.morus div').remove(); // removes previously appended divs
-    
     if (image) {
         $('.morus').html(altImage);
     }
@@ -199,6 +198,18 @@ digiPetApp.doTrick = function(trickDialogueSelector, image) {
 
 
 // ****************
+// Info
+// ****************
+
+digiPetApp.close = function() {
+    $('.info').hide();
+}
+
+digiPetApp.open = function() {
+    $('.info').show();
+}
+
+// ****************
 // Init
 // ****************
 digiPetApp.init = function() {
@@ -209,8 +220,6 @@ digiPetApp.init = function() {
         digiPetApp.updateIcons(); // treat icons
         digiPetApp.petBtnIncreaseHeartCounter();
         digiPetApp.petBtnIncreaseHeartIcon();
-
-        console.log(digiPetApp.counter); // remove later
     });
 
     $('.give-treat-btn').on('click', function(){
@@ -218,7 +227,6 @@ digiPetApp.init = function() {
         digiPetApp.treatBtnDecreaseTreatCounter();
         digiPetApp.treatBtnIncreaseHeartIcon();
         digiPetApp.treatBtnDecreaseTreatIcon();
-        console.log(digiPetApp.counter); // remove later
     });
 
     $('.bark-btn').on('click', function(){
@@ -227,7 +235,6 @@ digiPetApp.init = function() {
         if (heartIconDecrease) {
             digiPetApp.doTrick("woof");
         }
-        console.log(digiPetApp.counter); // remove later
     });
 
     $('.sit-btn').on('click', function(){
@@ -236,7 +243,6 @@ digiPetApp.init = function() {
         if (heartIconDecrease) {
             digiPetApp.doTrick("sit", "morusSit");
         }
-        console.log(digiPetApp.counter); // remove later
     })
 
     $('.jump-btn').on('click', function(){
@@ -245,7 +251,16 @@ digiPetApp.init = function() {
         if (heartIconDecrease) {
             digiPetApp.doTrick("jump");
         }
-        console.log(digiPetApp.counter); // remove later
+    })
+
+    digiPetApp.close();
+    $('.info-btn').on('click', function(){
+        digiPetApp.open();
+    })
+
+    $('.close').on('click', function(e){
+        e.preventDefault();
+        digiPetApp.close();
     })
 }
 

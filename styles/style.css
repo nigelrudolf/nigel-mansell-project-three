@@ -212,20 +212,21 @@ html {
           box-sizing: inherit;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-h1, h2, h3, h4, h5, h6, a, div, p, main, aside, footer, header, ul, li {
+html, h1, h2, h3, h4, h5, h6, a, div, p, main, aside, footer, header, ul, li, a {
   margin: 0;
   padding: 0;
+  font-size: 100%;
 }
 
-body {
+html {
+  font-size: 62.5%;
   font-family: "unibody-8-new" ,sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 1.35rem;
+}
+
+body {
+  font-size: 2rem;
 }
 
 .main-window {
@@ -242,9 +243,86 @@ body {
 }
 
 .application {
-  min-width: 650px;
-  height: 650px;
+  width: 100%;
+  height: 100vh;
   background: #FFDDDD;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: relative;
+}
+
+.info {
+  background: rgba(255, 99, 71, 0.96);
+  position: absolute;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  z-index: 1;
+  margin: 10px;
+  padding: 20px;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.info h2 {
+  font-size: 2rem;
+}
+
+.info p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.info .introduction {
+  margin-bottom: 20px;
+}
+
+.info .instructions {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.info a {
+  color: #fff;
+}
+
+.info a:hover {
+  color: #095ef2;
+}
+
+.logo {
+  font-size: 4rem;
+  text-shadow: 2px 2px red;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.close {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.application-wrapper {
+  width: calc(100% - 40px);
+  margin: 20px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -257,15 +335,13 @@ body {
           justify-content: space-between;
 }
 
-.application-wrapper {
-  width: calc(100% - 40px);
-  margin: 20px auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.happiness, .treat-o-meter {
+  height: 60px;
+}
+
+.happiness h2, .treat-o-meter h2 {
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .happiness ul, .treat-o-meter ul {
@@ -273,6 +349,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.treat-o-meter h2 {
+  margin: 10px 0;
+}
+
+.happiness ul {
+  margin: 10px 0;
 }
 
 .happiness ul li {
@@ -284,14 +371,8 @@ body {
   height: 26px;
 }
 
-.treat-o-meter ul {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-}
-
 .treat-o-meter ul li {
-  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .treat-o-meter ul li img {
@@ -314,6 +395,17 @@ body {
 .morus img {
   width: calc(832px * 0.15);
   height: calc(1216px * 0.15);
+}
+
+.button-panel {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.praise, .tricks {
+  height: 80px;
+  width: 100%;
 }
 
 .praise h2, .tricks h2 {
@@ -414,6 +506,28 @@ body {
 .eightbit-btn--tricks:active {
   -webkit-box-shadow: inset 2px 2px 0px 0px #0008e5;
           box-shadow: inset 2px 2px 0px 0px #0008e5;
+}
+
+.info-btn-container {
+  margin-bottom: 15px;
+}
+
+.info-btn {
+  background: #fff;
+  -webkit-box-shadow: inset -2px -2px 0px 0px #797979;
+          box-shadow: inset -2px -2px 0px 0px #797979;
+  color: #000;
+}
+
+.info-btn:hover, .info-btn:focus {
+  background: #b3b3b3;
+  -webkit-box-shadow: inset -3px -3px 0px 0px #797979;
+          box-shadow: inset -3px -3px 0px 0px #797979;
+}
+
+.info-btn:active {
+  -webkit-box-shadow: inset 2px 2px 0px 0px #797979;
+          box-shadow: inset 2px 2px 0px 0px #797979;
 }
 
 .woof, .sit, .jump {
@@ -736,5 +850,107 @@ body {
     -webkit-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .application {
+    width: 650px;
+    height: 650px;
+    background: #FFDDDD;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .info {
+    position: absolute;
+    z-index: 1;
+  }
+  .info p {
+    font-size: 1.7rem;
+  }
+  .application-wrapper {
+    width: calc(100% - 40px);
+    margin: 20px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+        -ms-flex-direction: unset;
+            flex-direction: unset;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .happiness h2 {
+    text-align: unset;
+  }
+  .treat-o-meter h2 {
+    text-align: unset;
+    margin: unset;
+  }
+  .happiness ul {
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
+  }
+  .happiness ul li {
+    margin-right: 10px;
+  }
+  .treat-o-meter ul {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: end;
+  }
+  .treat-o-meter ul li {
+    margin-left: 10px;
+    margin-right: unset;
+  }
+  .treat-o-meter ul li img {
+    width: 26px;
+    height: 14px;
+    -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+  }
+  .praise h2, .tricks h2, .treat-o-meter h2, .happiness h2 {
+    margin-bottom: 10px;
+  }
+  .praise, .tricks {
+    height: unset;
+  }
+  .praise {
+    width: 210px;
+  }
+  .praise div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .tricks {
+    width: 240px;
+  }
+  .tricks div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .info-btn-container {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-bottom: unset;
   }
 }

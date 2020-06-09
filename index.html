@@ -9,29 +9,27 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
-    <header>
-        <h1>DigiPets</h1>
-    </header>
-    <aside>
-        <section>
-            <h2>Introduction</h2>
-            This is Morus the dog. Petting Morus will earn you treats and increase his happiness. If you give Morus a treat he will become even happier. When morus is happy, he'll do tricks if you ask.
-        </section>
-        <section>
-            <h2>Instructions</h2>
-            <p>Pet the dog, 5 pets = 1 treat</p>
-        </section>
-    </aside>
     <main class="main-window">
         <div class="application">
-            <div class="application-wrapper">
+            <aside class="info">  
+                <h1 class="logo">DigiPets</h1>
+                <div>
+                    <h2 class="introduction">Introduction</h2>
+                    <p>This is Morus the dog. Petting Morus will earn you treats and increase his happiness. If you give Morus a treat he will become even happier. When Morus is happy, he'll do tricks if you ask.</p>
+                </div>
+                <div>
+                    <h2 class="instructions">Instructions</h2>
+                    <p>Pet the dog, 5 pets = 1 treat.</p>
+                </div>
+                <a href="" class="close">close</a>
+            </aside>
+            <div class="meter-panel application-wrapper">
                 <div class="happiness">
                     <h2>Happiness</h2>
                     <ul>
                         <!-- Hearts appear here -->
                     </ul>
                 </div>
-                
                 <div class="treat-o-meter">
                     <h2>Treat-O-Meter</h2>
                     <ul>
@@ -42,7 +40,7 @@
                 <div class="morus">
                     <img src="assets/morus-stand-8bit.png" alt="image of dog depicted in 8 bit art style">
                 </div>
-            <div class="application-wrapper">
+            <div class="button-panel application-wrapper">
                 <div class="praise">
                     <h2>Praise</h2>
                     <div class="praise-button-container">
@@ -50,6 +48,9 @@
                     <a class="give-treat-btn eightbit-btn">Give Treat</a>
                     </div>
                 </div>  
+                <div class="info-btn-container">
+                    <a class="info-btn eightbit-btn">info</a>
+                </div>
                 <div class="tricks">
                     <h2>Tricks</h2>
                     <div class="tricks-button-container">
@@ -65,9 +66,3 @@
 <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
 <script src="script/script.js"></script>
 </html>
-
-<!-- Instructions: 
-This is Morus the dog. Petting Morus will earn you treats and increase his happiness. If you give Morus a treat he will become even happier. When morus is happy, he'll do tricks if you ask. 
--->
-<!-- Pet the dog,
-5 pets = 1 treat -->
