@@ -28,12 +28,16 @@ digiPetApp.selector = {
 // *******
 // Pet Btn
 // *******
+
+// Increases the pet counter by 1 for each click
 digiPetApp.increasePetCounter = function() {
     digiPetApp.counter['pet']++;
 }
 
+// Pushes true to the treatCounter[] for every 5 pet counters
+// unless the treatCounter[] has maxed out at 3
 digiPetApp.petBtnIncreaseTreatCounter = function() {
-    let petCounter = digiPetApp.counter['pet'];
+    let petCounter = digiPetApp.counter.pet;
     let treatCounter = digiPetApp.counter.treat;
     if (treatCounter.length == 3) {
         
@@ -42,6 +46,10 @@ digiPetApp.petBtnIncreaseTreatCounter = function() {
     }
 }
 
+// Appends a treatIcon for every true value held in treatCounter[]
+// Increases treatIconDisplay by 1
+// treatIconDisplay in combination with treatCounter[] allows forEach to run
+// even after treatCounter = 3 but treatIconDisplay = 2
 digiPetApp.appendIcons = function() {
     let treatIcon = digiPetApp.assets.treat;
     const treats = digiPetApp.counter.treat;
@@ -53,6 +61,7 @@ digiPetApp.appendIcons = function() {
       })
 }
 
+// Unless treatCounter[] = 3 and treatIconDisplay = 3
 digiPetApp.updateIcons = function() {
     let treatCounter = digiPetApp.counter.treat;
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
@@ -133,10 +142,10 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
         let heartIcon = digiPetApp.assets.heart;
         const hearts = digiPetApp.counter.heart;
         $('.happiness ul li').remove();
-        digiPetApp.counter['heartIconDisplayCount'] = 0; // potentially remove
+        digiPetApp.counter['heartIconDisplayCount'] = 0;
         hearts.forEach((heart) => {
             $(`.happiness ul`).append(heartIcon);
-            digiPetApp.counter['heartIconDisplayCount']++; // potentially remove
+            digiPetApp.counter['heartIconDisplayCount']++;
           })
     }
 }
@@ -172,6 +181,7 @@ digiPetApp.decreaseHeartIcon = function() {
 digiPetApp.doTrick = function(trickDialogueSelector) {
     let trickDialogue = digiPetApp.trickDialogue[trickDialogueSelector];
     let selector = digiPetApp.selector[trickDialogueSelector];
+    $('.morus div').remove(); // removes previously appended divs
     $('.morus').append(trickDialogue);
     setTimeout(function(){ 
         $(selector).remove();
