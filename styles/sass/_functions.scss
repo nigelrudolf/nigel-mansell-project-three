@@ -1,8 +1,0 @@
-@function font-size($type) {
-    $choice: map-get($font-sizes, $type);
-    @return $choice;
-}; 
-@function color($type) {
-    $choice: map-get($colors, $type);
-    @return $choice;
-};
