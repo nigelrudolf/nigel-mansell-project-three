@@ -28,7 +28,6 @@ digiPetApp.selector = {
 // *******
 // Pet Btn
 // *******
-
 digiPetApp.increasePetCounter = function() {
     digiPetApp.counter['pet']++;
 }
@@ -55,22 +54,18 @@ digiPetApp.appendIcons = function() {
 }
 
 digiPetApp.updateIcons = function() {
-
     let treatCounter = digiPetApp.counter.treat;
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-
     if (treatCounter.length == 3 && treatIconDisplayCount == 3) {
 
     } else {
        this.appendIcons();
     }
-    
 }
 
 digiPetApp.petBtnIncreaseHeartCounter = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter.heart;
-
     if (heartCounter.length == 3) {
         
     } else if (petCounter >= 40 && petCounter % 40 == 0) {
@@ -82,7 +77,6 @@ digiPetApp.petBtnIncreaseHeartIcon = function() {
     let petCounter = digiPetApp.counter['pet'];
     let heartCounter = digiPetApp.counter.heart;
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-
     if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
         
     } else if (petCounter >= 40 && petCounter % 40 ==0) {   
@@ -97,27 +91,22 @@ digiPetApp.petBtnIncreaseHeartIcon = function() {
 // ****************
 digiPetApp.treatBtnDecreaseTreatCounter = function() {
     let treatCounter = digiPetApp.counter.treat;
-
     if (treatCounter.length > 0 && treatCounter.length < 4) {
         digiPetApp.counter.treat.pop();
     }
 }
 
 
-
 digiPetApp.treatBtnDecreaseTreatIcon = function() {
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
     let treatCounter = digiPetApp.counter.treat;
-
     if (treatCounter.length == 0 && treatIconDisplayCount == 0) {
         
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
             digiPetApp.counter['treatIconDisplayCount']--;
-
             let treatIcon = digiPetApp.assets.treat;
             const treats = digiPetApp.counter.treat;
             $('.treat-o-meter ul li').remove();
-
             treats.forEach((treat) => {
                 $(`.treat-o-meter ul`).append(treatIcon);
               })
@@ -127,7 +116,6 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
 digiPetApp.treatBtnIncreaseHeartCounter = function() {
     let heartCounter = digiPetApp.counter.heart;
     let treatCounter = digiPetApp.counter.treat;
-
     if (heartCounter.length == 3 ) {
        
     } else if (treatCounter.length != 0) {
@@ -138,10 +126,7 @@ digiPetApp.treatBtnIncreaseHeartCounter = function() {
 digiPetApp.treatBtnIncreaseHeartIcon = function() {
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-
     let heartCounter = digiPetApp.counter.heart;
-
-
     if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
         
     } else if (treatIconDisplayCount !== 0) {
@@ -153,7 +138,6 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
             $(`.happiness ul`).append(heartIcon);
             digiPetApp.counter['heartIconDisplayCount']++; // potentially remove
           })
-
     }
 }
 
@@ -170,7 +154,6 @@ digiPetApp.decreaseCounter = function(counterType) {
 digiPetApp.decreaseHeartIcon = function() {
     let heartCounter = digiPetApp.counter.heart;
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-
     if (heartCounter.length == 0 && heartIconDisplayCount == 0) {
 
     } else {
@@ -182,7 +165,6 @@ digiPetApp.decreaseHeartIcon = function() {
             $(`.happiness ul`).append(heartIcon);
             digiPetApp.counter['heartIconDisplayCount']++; // this starts from 0 and increases for every true value stored in hearts[]
           })
-          
         return true;
     }
 }
@@ -246,55 +228,8 @@ digiPetApp.init = function() {
         }
         console.log(digiPetApp.counter); // remove later
     })
-
-    $('.pet-btn, .give-treat-btn, .bark-btn, .sit-btn, .jump-btn').on('click', function(){
-        
-    })
-    // // Update icons
 }
-
-// let audio = new Audio('assets/cute.mp3');
-// audio.play();
 
 $(document).ready(function(){
     digiPetApp.init();
 });
-
-// DigiPets
-
-// STRETCH: Welcome Screen with "Start Game" and "About" Options
-// STRETCH: Incorporate relaxing audio on welcome screen and / or main screen
-
-// Stretch: Happiness and Treat-0-Meter are set to 1
-
-// need some kind of counter mechanism that interfaces with an updateIcons() mechanism
-// clicking buttons updates a counter, updateIcons() reads counter value and displays correct number of treats and hearts
-
-// pet-button Functionality
-// Player earns a treat at 5, 10 and 15 pets
-// Player earns a heart for every 40 pets
-// STRETCH: Petting is animated / Cursor could be an image of a hand, last treat/heart scales up to indicate limiit reached 
-// STRETCH: Possibly sounds added to match animations
-
-// Give Treat button functionality
-// Giving 1 treat adds 1 heart and removes 1 treat
-// STRETCH: Animate giving treat
-
-// Bark Button functionality
-// Costs 1 heart to achieve
-// Dog Barks, mvp: visual text indicator (Morus Barks)
-// Remove 1 heart
-// If not enough hearts, dog whimpers to encourage more petting or treats
-// STRETCH: Animate barking, sound for whimpering
-
-// Sit Button functionality
-// Costs 2 hearts to achieve
-// Dog Sits, mvp: visual text indicator (Morus Sits)
-// If not enough hearts, dog whimpers to encourage more petting or treats
-// STRETCH: Animate Sitting, sound for whimpering
-
-// Jump Button functionality
-// Costs 3 heart to achieve
-// Dog Jumps, mvp: visual text indicator (Morus Jumps)
-// If not enough hearts, dog whimpers to encourage more petting or treats 
-// STRTECH: Animate Jumping, sound for whimpering
