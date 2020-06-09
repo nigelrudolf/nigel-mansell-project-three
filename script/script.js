@@ -9,6 +9,8 @@ digiPetApp.counter = {
 digiPetApp.assets = {
     heart: `<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`,
     treat:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
+    morusStand: `<img src="assets/morus-stand-8bit.png" alt="image of dog depicted in 8 bit art style">`,
+    morusSit: `<img src="assets/morus-sit-8bit.png" alt="image of dog sitting depicted in 8 bit art style">`
 
 }
 digiPetApp.trickDialogue = {
@@ -68,7 +70,7 @@ digiPetApp.updateIcons = function() {
     if (treatCounter.length == 3 && treatIconDisplayCount == 3) {
 
     } else {
-       this.appendIcons();
+       digiPetApp.appendIcons();
     }
 }
 
@@ -178,13 +180,20 @@ digiPetApp.decreaseHeartIcon = function() {
     }
 }
 
-digiPetApp.doTrick = function(trickDialogueSelector) {
+digiPetApp.doTrick = function(trickDialogueSelector, image) {
     let trickDialogue = digiPetApp.trickDialogue[trickDialogueSelector];
     let selector = digiPetApp.selector[trickDialogueSelector];
+    let altImage = digiPetApp.assets[image];
+    let defaultImage = digiPetApp.assets.morusStand;
     $('.morus div').remove(); // removes previously appended divs
+    
+    if (image) {
+        $('.morus').html(altImage);
+    }
     $('.morus').append(trickDialogue);
     setTimeout(function(){ 
         $(selector).remove();
+        $('.morus').html(defaultImage);
     }, 3000);
 }
 
@@ -225,7 +234,7 @@ digiPetApp.init = function() {
         digiPetApp.decreaseCounter("heart");
         let heartIconDecrease = digiPetApp.decreaseHeartIcon();
         if (heartIconDecrease) {
-            digiPetApp.doTrick("sit");
+            digiPetApp.doTrick("sit", "morusSit");
         }
         console.log(digiPetApp.counter); // remove later
     })
