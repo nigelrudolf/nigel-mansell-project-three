@@ -63,12 +63,12 @@ digiPetApp.appendIcons = function() {
       })
 }
 
-// Unless treatCounter[] === 3 and treatIconDisplay === 3
+// Unless treats[] === 3 and treatIconDisplayCount === 3
 digiPetApp.updateIcons = function() {
-    let treatCounter = digiPetApp.counter.treats;
-    let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-    if (treatCounter.length == 3 && treatIconDisplayCount == 3) {
+    const {treats, treatIconDisplayCount} = digiPetApp.counter;
 
+    if (treats.length == 3 && treatIconDisplayCount == 3) {
+        return null;
     } else {
        digiPetApp.appendIcons();
     }
