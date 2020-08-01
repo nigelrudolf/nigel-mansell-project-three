@@ -9,7 +9,7 @@ digiPetApp.counter = {
 }
 digiPetApp.assets = {
     heart: `<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`,
-    treat:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
+    treatIcon:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
     morusStand: `<img src="assets/morus-stand-8bit.png" alt="image of dog depicted in 8 bit art style">`,
     morusSit: `<img src="assets/morus-sit-8bit.png" alt="image of dog sitting depicted in 8 bit art style">`
 }
@@ -36,8 +36,8 @@ digiPetApp.increasePetCounter = function() {
     digiPetApp.counter['pet']++;
 }
 
-// Pushes true to the treatCounter[] for every 5 pet counters
-// unless the treatCounter[] has maxed out at 3
+// Pushes true to the treats[] for every 5 pet counters
+// unless the treats[] has maxed out at 3
 digiPetApp.petBtnIncreaseTreatCounter = function() {
     const {pet, treats} = digiPetApp.counter;
     if (treats.length === 3) {
@@ -47,22 +47,23 @@ digiPetApp.petBtnIncreaseTreatCounter = function() {
     }
 }
 
-// Appends a treatIcon for every true value held in treatCounter[]
+// Appends a treatIcon for every true value held in treats[]
 // Increases treatIconDisplay by 1
-// treatIconDisplay in combination with treatCounter[] allows forEach to run
-// even after treatCounter = 3 but treatIconDisplay = 2
+// treatIconDisplayCount in combination with treats[] allows forEach to run
+// even after treatCounter === 3 but treatIconDisplay === 2
 digiPetApp.appendIcons = function() {
-    let treatIcon = digiPetApp.assets.treat;
-    const treats = digiPetApp.counter.treats;
+    const {treats} = digiPetApp.counter;
+    const {treatIcon} = digiPetApp.assets;
+
     $('.treat-o-meter ul li').remove();
-    digiPetApp.counter['treatIconDisplayCount'] = 0;
-    treats.forEach((treat) => {
+
+    treats.forEach(() => {
         $(`.treat-o-meter ul`).append(treatIcon);
-        digiPetApp.counter['treatIconDisplayCount']++;
+        digiPetApp.counter['treatIconDisplayCount'] = treats.length;
       })
 }
 
-// Unless treatCounter[] = 3 and treatIconDisplay = 3
+// Unless treatCounter[] === 3 and treatIconDisplay === 3
 digiPetApp.updateIcons = function() {
     let treatCounter = digiPetApp.counter.treats;
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
@@ -113,7 +114,7 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
         console.log("You need more treats");
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
             digiPetApp.counter['treatIconDisplayCount']--;
-            let treatIcon = digiPetApp.assets.treat;
+            let treatIcon = digiPetApp.assets.treatIcon;
             const treats = digiPetApp.counter.treats;
             $('.treat-o-meter ul li').remove();
             treats.forEach((treat) => {
