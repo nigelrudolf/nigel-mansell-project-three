@@ -67,7 +67,7 @@ digiPetApp.appendIcons = function() {
 digiPetApp.updateIcons = function() {
     const {treats, treatIconDisplayCount} = digiPetApp.counter;
 
-    if (treats.length == 3 && treatIconDisplayCount == 3) {
+    if (treats.length === 3 && treatIconDisplayCount === 3) {
         return null;
     } else {
        digiPetApp.appendIcons();
@@ -75,12 +75,12 @@ digiPetApp.updateIcons = function() {
 }
 
 digiPetApp.petBtnIncreaseHeartCounter = function() {
-    let petCounter = digiPetApp.counter['pet'];
-    let heartCounter = digiPetApp.counter.hearts;
-    if (heartCounter.length == 3) {
-        
-    } else if (petCounter >= 40 && petCounter % 40 == 0) {
-        digiPetApp.counter.hearts.push(true);
+    const {pet, hearts} = digiPetApp.counter;
+
+    if (hearts.length === 3) {
+        return null;
+    } else if (pet >= 40 && pet % 40 === 0) {
+        hearts.push(true);
     }
 }
 
