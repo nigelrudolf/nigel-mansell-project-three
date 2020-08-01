@@ -100,9 +100,10 @@ digiPetApp.petBtnIncreaseHeartIcon = function() {
 // Give Treat Btn
 // ****************
 digiPetApp.treatBtnDecreaseTreatCounter = function() {
-    let treatCounter = digiPetApp.counter.treats;
-    if (treatCounter.length > 0 && treatCounter.length < 4) {
-        digiPetApp.counter.treats.pop();
+    const {treats} = digiPetApp.counter;
+    
+    if (treats.length > 0 && treats.length < 4) {
+        treats.pop();
     }
 }
 
