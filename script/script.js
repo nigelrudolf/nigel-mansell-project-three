@@ -1,9 +1,10 @@
+/*eslint-disable*/
 const digiPetApp = {};
 digiPetApp.counter = {
     pet: 0,
-    treat: [],
+    treats: [],
     treatIconDisplayCount: 0,
-    heart: [],
+    hearts: [],
     heartIconDisplayCount: 0,
 }
 digiPetApp.assets = {
@@ -11,7 +12,6 @@ digiPetApp.assets = {
     treat:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
     morusStand: `<img src="assets/morus-stand-8bit.png" alt="image of dog depicted in 8 bit art style">`,
     morusSit: `<img src="assets/morus-sit-8bit.png" alt="image of dog sitting depicted in 8 bit art style">`
-
 }
 digiPetApp.trickDialogue = {
     woof: '<div class="woof">Woof!</div>',
@@ -40,11 +40,11 @@ digiPetApp.increasePetCounter = function() {
 // unless the treatCounter[] has maxed out at 3
 digiPetApp.petBtnIncreaseTreatCounter = function() {
     let petCounter = digiPetApp.counter.pet;
-    let treatCounter = digiPetApp.counter.treat;
+    let treatCounter = digiPetApp.counter.treats;
     if (treatCounter.length == 3) {
         
     } else if (petCounter >= 5 && petCounter % 5 == 0) {
-        digiPetApp.counter.treat.push(true);   
+        digiPetApp.counter.treats.push(true);   
     }
 }
 
@@ -54,7 +54,7 @@ digiPetApp.petBtnIncreaseTreatCounter = function() {
 // even after treatCounter = 3 but treatIconDisplay = 2
 digiPetApp.appendIcons = function() {
     let treatIcon = digiPetApp.assets.treat;
-    const treats = digiPetApp.counter.treat;
+    const treats = digiPetApp.counter.treats;
     $('.treat-o-meter ul li').remove();
     digiPetApp.counter['treatIconDisplayCount'] = 0;
     treats.forEach((treat) => {
@@ -65,7 +65,7 @@ digiPetApp.appendIcons = function() {
 
 // Unless treatCounter[] = 3 and treatIconDisplay = 3
 digiPetApp.updateIcons = function() {
-    let treatCounter = digiPetApp.counter.treat;
+    let treatCounter = digiPetApp.counter.treats;
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
     if (treatCounter.length == 3 && treatIconDisplayCount == 3) {
 
@@ -76,17 +76,17 @@ digiPetApp.updateIcons = function() {
 
 digiPetApp.petBtnIncreaseHeartCounter = function() {
     let petCounter = digiPetApp.counter['pet'];
-    let heartCounter = digiPetApp.counter.heart;
+    let heartCounter = digiPetApp.counter.hearts;
     if (heartCounter.length == 3) {
         
     } else if (petCounter >= 40 && petCounter % 40 == 0) {
-        digiPetApp.counter.heart.push(true);
+        digiPetApp.counter.hearts.push(true);
     }
 }
 
 digiPetApp.petBtnIncreaseHeartIcon = function() {
     let petCounter = digiPetApp.counter['pet'];
-    let heartCounter = digiPetApp.counter.heart;
+    let heartCounter = digiPetApp.counter.hearts;
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
         
@@ -101,48 +101,48 @@ digiPetApp.petBtnIncreaseHeartIcon = function() {
 // Give Treat Btn
 // ****************
 digiPetApp.treatBtnDecreaseTreatCounter = function() {
-    let treatCounter = digiPetApp.counter.treat;
+    let treatCounter = digiPetApp.counter.treats;
     if (treatCounter.length > 0 && treatCounter.length < 4) {
-        digiPetApp.counter.treat.pop();
+        digiPetApp.counter.treats.pop();
     }
 }
 
 
 digiPetApp.treatBtnDecreaseTreatIcon = function() {
-    let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-    let treatCounter = digiPetApp.counter.treat;
-    if (treatCounter.length == 0 && treatIconDisplayCount == 0) {
-        
+    let {treatIconDisplayCount, treats} = digiPetApp.counter;
+    if (treats.length === 0 && treatIconDisplayCount === 0) {
+        console.log("You need more treats");
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
             digiPetApp.counter['treatIconDisplayCount']--;
             let treatIcon = digiPetApp.assets.treat;
-            const treats = digiPetApp.counter.treat;
+            const treats = digiPetApp.counter.treats;
             $('.treat-o-meter ul li').remove();
             treats.forEach((treat) => {
                 $(`.treat-o-meter ul`).append(treatIcon);
               })
     }
+    console.log(digiPetApp.counter);
 }
 
 digiPetApp.treatBtnIncreaseHeartCounter = function() {
-    let heartCounter = digiPetApp.counter.heart;
-    let treatCounter = digiPetApp.counter.treat;
+    let heartCounter = digiPetApp.counter.hearts;
+    let treatCounter = digiPetApp.counter.treats;
     if (heartCounter.length == 3 ) {
        
     } else if (treatCounter.length != 0) {
-        digiPetApp.counter.heart.push(true);
+        digiPetApp.counter.hearts.push(true);
     }
 }
 
 digiPetApp.treatBtnIncreaseHeartIcon = function() {
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     let treatIconDisplayCount = digiPetApp.counter['treatIconDisplayCount'];
-    let heartCounter = digiPetApp.counter.heart;
+    let heartCounter = digiPetApp.counter.hearts;
     if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
         
     } else if (treatIconDisplayCount !== 0) {
         let heartIcon = digiPetApp.assets.heart;
-        const hearts = digiPetApp.counter.heart;
+        const hearts = digiPetApp.counter.hearts;
         $('.happiness ul li').remove();
         digiPetApp.counter['heartIconDisplayCount'] = 0;
         hearts.forEach((heart) => {
@@ -163,13 +163,13 @@ digiPetApp.decreaseCounter = function(counterType) {
 }
 
 digiPetApp.decreaseHeartIcon = function() {
-    let heartCounter = digiPetApp.counter.heart;
+    let heartCounter = digiPetApp.counter.hearts;
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     if (heartCounter.length == 0 && heartIconDisplayCount == 0) {
 
     } else {
         let heartIcon = digiPetApp.assets.heart;
-        const hearts = digiPetApp.counter.heart;
+        const hearts = digiPetApp.counter.hearts;
         $('.happiness ul li').remove();
         digiPetApp.counter['heartIconDisplayCount'] = 0; // this clears the heart[] each time
         hearts.forEach((heart) => {
@@ -230,7 +230,7 @@ digiPetApp.init = function() {
     });
 
     $('.bark-btn').on('click', function(){
-        digiPetApp.decreaseCounter("heart");
+        digiPetApp.decreaseCounter("hearts");
         let heartIconDecrease = digiPetApp.decreaseHeartIcon();
         if (heartIconDecrease) {
             digiPetApp.doTrick("woof");
@@ -238,7 +238,7 @@ digiPetApp.init = function() {
     });
 
     $('.sit-btn').on('click', function(){
-        digiPetApp.decreaseCounter("heart");
+        digiPetApp.decreaseCounter("hearts");
         let heartIconDecrease = digiPetApp.decreaseHeartIcon();
         if (heartIconDecrease) {
             digiPetApp.doTrick("sit", "morusSit");
@@ -246,7 +246,7 @@ digiPetApp.init = function() {
     })
 
     $('.jump-btn').on('click', function(){
-        digiPetApp.decreaseCounter("heart");
+        digiPetApp.decreaseCounter("hearts");
         let heartIconDecrease = digiPetApp.decreaseHeartIcon();
         if (heartIconDecrease) {
             digiPetApp.doTrick("jump");
