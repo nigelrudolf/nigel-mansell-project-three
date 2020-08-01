@@ -8,7 +8,7 @@ digiPetApp.counter = {
     heartIconDisplayCount: 0,
 }
 digiPetApp.assets = {
-    heart: `<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`,
+    heartIcon: `<li><img src="assets/heart-8bit.png" alt="heart icon used to indicate dog's level happiness"></li>`,
     treatIcon:  `<li><img src="assets/treats-8bit.png" alt="dog treat icon used to indicate number of treats available"></li>`,
     morusStand: `<img src="assets/morus-stand-8bit.png" alt="image of dog depicted in 8 bit art style">`,
     morusSit: `<img src="assets/morus-sit-8bit.png" alt="image of dog sitting depicted in 8 bit art style">`
@@ -85,13 +85,12 @@ digiPetApp.petBtnIncreaseHeartCounter = function() {
 }
 
 digiPetApp.petBtnIncreaseHeartIcon = function() {
-    let petCounter = digiPetApp.counter['pet'];
-    let heartCounter = digiPetApp.counter.hearts;
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-    if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
-        
-    } else if (petCounter >= 40 && petCounter % 40 ==0) {   
-        let heartIcon = digiPetApp.assets.heart; 
+    const {pet, hearts, heartIconDisplayCount} = digiPetApp.counter;
+    const {heartIcon} = digiPetApp.assets;
+
+    if (hearts.length === 3 && heartIconDisplayCount === 3) {
+        return null;
+    } else if (pet >= 40 && pet % 40 === 0) {   
         $(`.happiness ul`).append(heartIcon);
         digiPetApp.counter['heartIconDisplayCount']++;
     }
@@ -109,15 +108,17 @@ digiPetApp.treatBtnDecreaseTreatCounter = function() {
 
 
 digiPetApp.treatBtnDecreaseTreatIcon = function() {
-    let {treatIconDisplayCount, treats} = digiPetApp.counter;
+    const {treatIconDisplayCount, treats} = digiPetApp.counter;
+    const {treatIcon} = digiPetApp.assets;
+
     if (treats.length === 0 && treatIconDisplayCount === 0) {
         console.log("You need more treats");
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
             digiPetApp.counter['treatIconDisplayCount']--;
-            let treatIcon = digiPetApp.assets.treatIcon;
-            const treats = digiPetApp.counter.treats;
+            // let treatIcon = digiPetApp.assets.treatIcon;
+            // const treats = digiPetApp.counter.treats;
             $('.treat-o-meter ul li').remove();
-            treats.forEach((treat) => {
+            treats.forEach(() => {
                 $(`.treat-o-meter ul`).append(treatIcon);
               })
     }
@@ -125,12 +126,11 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
 }
 
 digiPetApp.treatBtnIncreaseHeartCounter = function() {
-    let heartCounter = digiPetApp.counter.hearts;
-    let treatCounter = digiPetApp.counter.treats;
-    if (heartCounter.length == 3 ) {
-       
-    } else if (treatCounter.length != 0) {
-        digiPetApp.counter.hearts.push(true);
+    const {hearts, treats} = digiPetApp.counter;
+    if (hearts.length == 3 ) {
+        return null;
+    } else if (treats.length != 0) {
+        hearts.push(true);
     }
 }
 
@@ -141,7 +141,8 @@ digiPetApp.treatBtnIncreaseHeartIcon = function() {
     if (heartCounter.length == 3 && heartIconDisplayCount == 3) {
         
     } else if (treatIconDisplayCount !== 0) {
-        let heartIcon = digiPetApp.assets.heart;
+        const {heartIcon} = digiPetApp.assets;
+        // let heartIcon = digiPetApp.assets.heart;
         const hearts = digiPetApp.counter.hearts;
         $('.happiness ul li').remove();
         digiPetApp.counter['heartIconDisplayCount'] = 0;
@@ -163,12 +164,13 @@ digiPetApp.decreaseCounter = function(counterType) {
 }
 
 digiPetApp.decreaseHeartIcon = function() {
+    const {heartIcon} = digiPetApp.assets;
     let heartCounter = digiPetApp.counter.hearts;
     let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
     if (heartCounter.length == 0 && heartIconDisplayCount == 0) {
 
     } else {
-        let heartIcon = digiPetApp.assets.heart;
+        // let heartIcon = digiPetApp.assets.heart;
         const hearts = digiPetApp.counter.hearts;
         $('.happiness ul li').remove();
         digiPetApp.counter['heartIconDisplayCount'] = 0; // this clears the heart[] each time
