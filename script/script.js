@@ -39,12 +39,11 @@ digiPetApp.increasePetCounter = function() {
 // Pushes true to the treatCounter[] for every 5 pet counters
 // unless the treatCounter[] has maxed out at 3
 digiPetApp.petBtnIncreaseTreatCounter = function() {
-    let petCounter = digiPetApp.counter.pet;
-    let treatCounter = digiPetApp.counter.treats;
-    if (treatCounter.length == 3) {
+    const {pet, treats} = digiPetApp.counter;
+    if (treats.length === 3) {
         
-    } else if (petCounter >= 5 && petCounter % 5 == 0) {
-        digiPetApp.counter.treats.push(true);   
+    } else if (pet >= 5 && pet % 5 === 0) {
+        treats.push(true);   
     }
 }
 
