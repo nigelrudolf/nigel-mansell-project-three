@@ -41,7 +41,7 @@ digiPetApp.increasePetCounter = function() {
 digiPetApp.petBtnIncreaseTreatCounter = function() {
     const {pet, treats} = digiPetApp.counter;
     if (treats.length === 3) {
-        
+        return null;
     } else if (pet >= 5 && pet % 5 === 0) {
         treats.push(true);   
     }
