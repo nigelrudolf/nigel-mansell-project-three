@@ -159,19 +159,16 @@ digiPetApp.decreaseCounter = function(counterType) {
 }
 
 digiPetApp.decreaseHeartIcon = function() {
+    const {hearts, heartIconDisplayCount} = digiPetApp.counter;
     const {heartIcon} = digiPetApp.assets;
-    let heartCounter = digiPetApp.counter.hearts;
-    let heartIconDisplayCount = digiPetApp.counter['heartIconDisplayCount'];
-    if (heartCounter.length == 0 && heartIconDisplayCount == 0) {
 
+    if (hearts.length === 0 && heartIconDisplayCount === 0) {
+        return null;
     } else {
-        // let heartIcon = digiPetApp.assets.heart;
-        const hearts = digiPetApp.counter.hearts;
         $('.happiness ul li').remove();
-        digiPetApp.counter['heartIconDisplayCount'] = 0; // this clears the heart[] each time
-        hearts.forEach((heart) => {
+        hearts.forEach(() => {
             $(`.happiness ul`).append(heartIcon);
-            digiPetApp.counter['heartIconDisplayCount']++; // this starts from 0 and increases for every true value stored in hearts[]
+            digiPetApp.counter['heartIconDisplayCount'] = hearts.length; // this starts from 0 and increases for every true value stored in hearts[]
           })
         return true;
     }
