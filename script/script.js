@@ -113,7 +113,7 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
     const {treatIcon} = digiPetApp.assets;
 
     if (treats.length === 0 && treatIconDisplayCount === 0) {
-        console.log("You need more treats");
+        
     } else if (treatIconDisplayCount > 0 && treatIconDisplayCount < 4){
             digiPetApp.counter['treatIconDisplayCount']--;
             $('.treat-o-meter ul li').remove();
@@ -121,7 +121,6 @@ digiPetApp.treatBtnDecreaseTreatIcon = function() {
                 $(`.treat-o-meter ul`).append(treatIcon);
               })
     }
-    console.log(digiPetApp.counter);
 }
 
 digiPetApp.treatBtnIncreaseHeartCounter = function() {
@@ -166,6 +165,7 @@ digiPetApp.decreaseHeartIcon = function() {
         return null;
     } else {
         $('.happiness ul li').remove();
+        digiPetApp.counter['heartIconDisplayCount'] = 0;
         hearts.forEach(() => {
             $(`.happiness ul`).append(heartIcon);
             digiPetApp.counter['heartIconDisplayCount'] = hearts.length; // this starts from 0 and increases for every true value stored in hearts[]
